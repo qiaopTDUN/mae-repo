@@ -1,0 +1,58 @@
+training:
+  batch_size: 128
+  warmup_epochs: 40
+  n_epochs: 1600
+  # n_iters: 300001
+  train_verbose_freq: 1000
+  evaluate_freq: 5000
+  snapshot_freq: 5000
+  # snapshot_sampling: true
+  # anneal_power: 2
+  # log_all_sigmas: false
+  distributed: true
+  world_size: 8
+  local_rank: -1
+  dist_on_itp: false
+  dist_url: "env://"
+  gpu: -1
+
+
+test:
+  begin_ckpt: 5000
+  end_ckpt: 300000
+  batch_size: 100
+
+data:
+  dataset: "ImageNet"
+  image_size: 256
+  channels: 3
+  imagenet_default_mean_and_std: true
+  # logit_transform: false
+  # uniform_dequantization: false
+  # gaussian_dequantization: false
+  # random_flip: true
+  # rescaled: false
+  num_workers: 8
+  pin_mem: true
+
+model:
+  image_size: 256
+  patch_size: 32
+  mask_ratio: 0.75
+  drop_path: 0.0
+  normalize_target: true
+  ema: false
+  ema_rate: 0.999
+  # normalization: InstanceNorm++
+  # nonlinearity: elu
+  # ngf: 128
+
+optim:
+  weight_decay: 0.05
+  optimizer: "AdamW"
+  lr: 1.5e-4
+  beta1: 0.9
+  amsgrad: false
+  eps: 0.00000001
+  warmup_lr: 1e-6
+  min_lr: 1e-6
