@@ -31,6 +31,6 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,5,6,7 OMP_NUM_THREADS=1 python -m torch.distributed
 ## ToDo lists
 - [x] add pretrain mode
 - [ ] add fine-tunning mode
-- [ ] supprot mixed precision training
+- [ ] support mixed precision training
 - [x] support distributed training
 - [ ] verify the correctness of this re-implementation
