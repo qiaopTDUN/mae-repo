@@ -16,6 +16,15 @@ cd ..
 mkdir val && mv ILSVRC2012_img_val.tar val/ && cd val && tar -xvf ILSVRC2012_img_val.tar
 wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/valprep.sh | bash
 ```
+
+## prepare python environment
+We use anaconda as python package manager. 
+```
+~/anaconda3/bin/conda create -n mae-env python=3.6
+source ~/anaconda3/bin/activate mae-env
+pip install -r requirements.txt
+```
+
 ## modify configuration file
 To separate code and config, we try to split configurations to yaml file, located in configs directory, such as imagenet1k-vit-base.yml.
 One can modify 'model' setting following [MAE](https://arxiv.org/abs/2111.06377) and [ViT](https://arxiv.org/abs/2010.11929) to configure model architecture parameters of ViT-base, large and huge.
